@@ -1,20 +1,48 @@
-<<<<<<< HEAD
-# invoice-ai-portal
-=======
-# React + Vite
+# InvoiceAI - AI-Powered Invoice Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern invoice processing application with AI extraction, real-time analytics, and Firebase integration.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📤 Drag & drop invoice upload
+- 🤖 AI-powered data extraction
+- 📊 Real-time analytics dashboard
+- 🔥 Firebase authentication & database
+- 🌓 Dark/Light mode
+- 📱 Responsive design
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 18
+- React Router v6
+- Firebase (Auth + Firestore)
+- Tailwind CSS
+- Recharts
+- React Dropzone
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> 1239fa5 (add packges)
+\`\`\`bash
+npm install
+cp .env.example .env
+
+# Add your Firebase credentials to .env
+
+npm start
+\`\`\`
+
+## Project Structure
+
+\`\`\`
+src/
+├── components/ # Reusable UI components
+├── pages/ # Page components
+├── contexts/ # React contexts
+├── hooks/ # Custom hooks
+├── config/ # Configuration files
+└── utils/ # Helper functions
+\`\`\`
+
+## License
+
+MIT
