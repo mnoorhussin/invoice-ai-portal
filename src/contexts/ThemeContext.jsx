@@ -11,17 +11,35 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Initialize from localStorage or default to false (light mode)
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      console.log('Initial theme from localStorage:', savedTheme);
+      // If no saved theme, default to light mode (false)
+      return savedTheme === 'dark';
+    } catch (error) {
+      console.log('localStorage not available, defaulting to light mode');
+      return false;
+    }
+  });
 
   useEffect(() => {
+    // Apply theme to document and save to localStorage
+    const html = document.documentElement;
+    
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
+      html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
 
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+  const toggleDarkMode = () => {
+    setIsDarkMode(prevMode => !prevMode);
+  };
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>

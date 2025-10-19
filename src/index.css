@@ -1,71 +1,62 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Force white text in dark mode with maximum specificity */
+html.dark,
+html.dark *,
+html.dark body,
+html.dark main,
+html.dark div,
+html.dark p,
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark span,
+html.dark button,
+html.dark td,
+html.dark th,
+html.dark label {
+  color: white !important;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+/* Override all Tailwind text color classes in dark mode */
+html.dark .text-gray-100,
+html.dark .text-gray-200,
+html.dark .text-gray-300,
+html.dark .text-gray-400,
+html.dark .text-gray-500,
+html.dark .text-gray-600,
+html.dark .text-gray-700,
+html.dark .text-gray-800,
+html.dark .text-gray-900,
+html.dark .text-black {
+  color: white !important;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Preserve specific colors for status elements */
+html.dark .text-blue-500,
+html.dark .text-blue-600 {
+  color: #3b82f6 !important;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+html.dark .text-green-400,
+html.dark .text-green-500 {
+  color: #4ade80 !important;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+html.dark .text-yellow-400,
+html.dark .text-yellow-500 {
+  color: #facc15 !important;
 }
 
+html.dark .text-red-400,
+html.dark .text-red-500 {
+  color: #f87171 !important;
+}
 
-
+/* Ensure buttons with explicit white text stay white */
+html.dark .text-white {
+  color: white !important;
+}
